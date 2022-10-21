@@ -47,13 +47,53 @@ except ValueError:
 #Podeu utilitzar la funció randint() de la llibreria random:
 #Exemple d'ús:
 import random
-numero = random.randint(1, 6)
 
-try:
-    tirada=input("Tira el dau introduint la paraula 'tirar': ")
+global bucle, bucle2, bucle3
+bucle = True
+bucle2 = True
+bucle3 = True
+partida = 1
+victoria_j1 = 0
+victoria_j2 = 0
+print("---- Comença la partida",partida,"----")
+
+while bucle == True:
+    numero = random.randint(1, 6)
+    tirada = input("Jugador 1: Tira el dau introduint la paraula 'tirar': ")
     if (tirada == "tirar"):
-        print("Has tret el número:",numero)
+        print("Jugador 1: Has tret el número:",numero)
+        bucle2 = True
+        while bucle2 == True:
+            numero2 = random.randint(1, 6) 
+            tirada = input("Jugador 2: Tira el dau introduint la paraula 'tirar': ")
+            if (tirada == "tirar"):
+                print("Jugador 2: Has tret el número:",numero2)
+                bucle2 = False
+                if numero > numero2:
+                    victoria_j1 = victoria_j1 + 1
+                    print("Ha guanyat el jugador 1 la partida i t'he",victoria_j1,"victoria/es")
+                elif numero2 > numero:
+                    victoria_j2 = victoria_j2 + 1
+                    print("Ha guanyat el jugador 2 la partida i t'he",victoria_j2,"victoria/es")
+                else:
+                    print("Els jugadors han empatat")
+                bucle3 = True
+                while bucle3 == True:
+                    jugar = input("Vols tornar a probar sort?, introdueix la paraula 'jugar', sino posa la paraula 'exit' per deixar de jugar: ")
+                    if (jugar == "jugar"):
+                        partida = partida + 1; print("---- Comença la partida",partida,"----")
+                        bucle3 = False
+                    elif (jugar == "exit"):
+                        if victoria_j1 > victoria_j2:
+                            print("El jugador 1 ha guanyat el joc amb",victoria_j1,"vicotoria/es")
+                        elif victoria_j2 > victoria_j1:
+                            print("El jugador 2 ha guanyat el joc amb",victoria_j2,"vicotoria/es")
+                        else:
+                            print("Els jugadors han quedat en empat")
+                        print("Espero que t'hagit agradat, fins aviat")
+                        bucle3 = False
+                        bucle = False
+                    else:
+                        print("Introdueix la paraula 'jugar' o 'exit' per deixar de jugar")
     else:
         print("Has d'introduir la paraula 'tirar' per jugar")
-except ValueError:
-    print("Paraula o caràcter incorrect/a")
