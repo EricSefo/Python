@@ -9,7 +9,7 @@
 try:
     puntuacio=float(input("Introdueix una puntuació entre 0 i 10: "))
     if puntuacio > 10 or puntuacio < 0:
-        print("Incorrecta")
+        print("Puntuació incorrecta")
     elif puntuacio >= 9:
         print("Excel·lent")
     elif puntuacio >= 8:
@@ -30,9 +30,9 @@ try:
     any_random=int(input("Dis-me un any qualsevol: "))
     diferencia= abs(any_actual - any_random)
     if any_actual > any_random and diferencia != 1:
-        print("Han passat",str(diferencia),"anys")
+        print("Han passat",diferencia,"anys")
     elif any_actual < any_random and diferencia != 1:
-        print("Falten",str(diferencia),"anys")
+        print("Falten",diferencia,"anys")
     elif diferencia == 1 and any_random > any_actual:
         print("Només falta un any")
     elif diferencia == 1 and any_random < any_actual:
@@ -48,7 +48,6 @@ except ValueError:
 #Exemple d'ús:
 import random
 
-global bucle, bucle2, bucle3
 bucle = True
 bucle2 = True
 bucle3 = True
@@ -79,7 +78,7 @@ while bucle == True:
                     print("Els jugadors han empatat")
                 bucle3 = True
                 while bucle3 == True:
-                    jugar = input("Vols tornar a probar sort?, introdueix la paraula 'jugar', sino posa la paraula 'exit' per deixar de jugar: ")
+                    jugar = input("Vols tornar a provar sort?, introdueix la paraula 'jugar', si no posa la paraula 'exit' per deixar de jugar: ")
                     if (jugar == "jugar"):
                         partida = partida + 1; print("---- Comença la partida",partida,"----")
                         bucle3 = False
