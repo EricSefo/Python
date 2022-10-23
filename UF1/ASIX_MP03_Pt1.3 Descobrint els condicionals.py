@@ -57,15 +57,15 @@ victoria_j2 = 0
 print("---- Comença la partida",partida,"----")
 
 while bucle == True:
-    numero = random.randint(1, 6)
     tirada = input("Jugador 1: Tira el dau introduint la paraula 'tirar': ")
     if (tirada == "tirar"):
+        numero = random.randint(1, 6)
         print("Jugador 1: Has tret el número:",numero)
         bucle2 = True
         while bucle2 == True:
-            numero2 = random.randint(1, 6) 
             tirada = input("Jugador 2: Tira el dau introduint la paraula 'tirar': ")
             if (tirada == "tirar"):
+                numero2 = random.randint(1, 6) 
                 print("Jugador 2: Has tret el número:",numero2)
                 bucle2 = False
                 if numero > numero2:
