@@ -1,14 +1,16 @@
 pesos = {'Pepe':[56, 64, 54],'Paco':[89, 87, 86], 'Pancracio':[102, 105, 111]}
 
-usr=input("Introdueix un Usuari:")
-pes=int(input("Introdueix un pes:"))
 try:
- pesos[usr].append(pes)
+    usr=input("Introdueix el nom d'un Usuari: ")
+    pes=float(input("Introdueix un pes en kg: "))
+    pesos[usr].append(pes)
+    print("Pesos de",usr,pesos[usr]);
 except KeyError:
- pesos[usr]=[pes]
-
-print("Pesos de ",usr,pesos[usr]);
-
+    pesos[usr]=[pes]
+    print("Pesos de",usr,pesos[usr]);  
+except ValueError:
+    print("Introdueix el pes en números")
+    
 #print (diccionari['Paco'])
 #print (len(diccionari))
 #print ('Pancracio' in diccionari)
