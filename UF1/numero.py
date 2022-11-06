@@ -1,5 +1,5 @@
 import random
-num = random.randint(0,100)
+''''num = random.randint(0,100)
 contador = 5
 while contador > 0:
     try:
@@ -21,7 +21,7 @@ while contador > 0:
     contador -= 1
     
 if contador == 0:
-    print("S'han acabat els intents")
+    print("S'han acabat els intents")'''
 
 pesos = {'Pepe':[56.6, 64.3, 54.1],
          'Paco':[89.4, 87.3, 86.5], 
@@ -39,19 +39,20 @@ except ValueError:
     print("Introdueix el pes en números")
 except:
     print("S'ha produit un error") 
-# Versió 1 poc eficient
-'''i=0
-pesos[usr]
-while i<len(pesos[usr]):
-    print(pesos[usr][i])
-    i+=1'''
 
-# Versió 2
+# Versió 1
 
 pes_antic = 0
 for pes in pesos[usr]:
     if pes_antic!=0:
      diferencia = pes - pes_antic
-     print(round(diferencia,2))    
- 
+     print("La diferència de pesos és:",round(diferencia,1))    
     pes_antic = pes
+
+# Versió 2 poc eficient
+
+i = 0
+while len(pesos[usr]) != 1:
+    diferencia = pesos[usr][i+1] - pesos[usr][i]
+    pesos[usr].pop(0)
+    print ("La diferència de pesos és:",round(diferencia,1))
