@@ -1,5 +1,4 @@
 import random
-from random import randint, choice
 
 preguntes = ["Pregunta 1: Dis-me l'arrel de quadrada de 4.", 
 "Pregunta 2: Dis-me l'arrel de quadrada de 16.",
