@@ -1,8 +1,8 @@
 import random
 
-options = [ ["Pregunta 1: Dis-me l'arrel de quadrada de 4.","1. 1.5\n2. 2\n3. 5",2],
-            ["Pregunta 2: Dis-me l'arrel de quadrada de 16.","1. 4\n2. 2\n3. 6",1,],
-            ["Pregunta 3: Quin és el record dels 100 metros llisos en segons?","1. 9,58\n2. 10\n3. 9,78",1],
+options = [ ["Pregunta 1: Dis-me l'arrel de quadrada de 4.",["1. 1.5\n","2. 2\n","3. 5"],2],
+            ["Pregunta 2: Dis-me l'arrel de quadrada de 16.",["1. 4\n","2. 2\n","3. 6"],1],
+            ["Pregunta 3: Quin és el record dels 100 metros llisos en segons?",["1. 9,58\n","2. 10\n","3. 9,78"],1],
             ["Pregunta 4: Quants milions de persones viuen a españa?","1. 47\n2. 50\n3. 55",1],
             ["Pregunta 5: En quin segle estem?","1. 22\n2. 20\n3. 21",3],
             ["Pregunta 6: Quin nivell d'anglès és el més alt?","1. C2\n2. C1\n3. B2",1],
@@ -10,13 +10,14 @@ options = [ ["Pregunta 1: Dis-me l'arrel de quadrada de 4.","1. 1.5\n2. 2\n3. 5"
             ["Pregunta 8: En quin any va acabar la segona guerra mundial?","1. 1934\n2. 1945\n3. 1915",2],
             ["Pregunta 9: Quin és millor mestre d'ASIX?","1. Mireia\n2. Jordi Varas\n3. Gonçal",3],
             ["Pregunta 10: Dis-me l'arrel quadrada de 25.","1. 7\n2. 5\n3. 6",2] ]
-
+aleatori = random.choice(options)
+print (aleatori[1][0])
 victoria_j1 = 0
 victoria_j2 = 0
 victoria_j3 = 0
 victoria_j4 = 0
 
-while True:
+'''while True:
     partida = input("Amb quants jugadors vols jugar?\n Per triar una partida de dos jugadors escriu '2'\n Per triar una partida de quatre jugadors escriu '4'\n Elecció: ")
     if partida == "2":
         torn = random.randint(1, 2)
@@ -72,7 +73,7 @@ while True:
         del options[response]
     else:
         print("No hi ha més preguntes, el joc s'acabat")
-        break
+        break'''
 
 '''#Dos jugadors, el primer que encerta 3 preguntes guanya!!'''
 '''#El format de les preguntes serà:
