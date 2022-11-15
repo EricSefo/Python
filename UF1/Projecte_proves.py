@@ -1,4 +1,5 @@
 import random
+from subprocess import call
 
 options = [ ["Pregunta 1: Dis-me l'arrel de quadrada de 4.", [["1.5",False],["2",True],["5",False]]],
             ["Pregunta 2: Dis-me l'arrel de quadrada de 16.", [["4",True],["2",False],["6",False]]],
@@ -13,6 +14,7 @@ options = [ ["Pregunta 1: Dis-me l'arrel de quadrada de 4.", [["1.5",False],["2"
 
 
 victorias = [0, 0, 0, 0]
+answer = 0
 
 while True:
     partida = int(input("Amb quants jugadors vols jugar?\n Per triar una partida de dos jugadors escriu '2'\n Per triar una partida de quatre jugadors escriu '4'\n Elecció: "))
@@ -35,8 +37,16 @@ while True:
         print (aleatori[0])
         for i in range(3):
             print(str(i+1)+". ",aleatori[1][i][0])
-
-        answer = int(input("Jugador " + str(torn) + " (RESPOSTA): "))
+        while answer not in [1,2,3]:
+            try:
+                print(str(i+1)+". ",aleatori[1][i][0])
+                answer = int(input("Jugador " + str(torn) + " (RESPOSTA): "))
+            except:
+                pass
+            call ('clear')
+            print (aleatori[0])
+            for i in range(3):
+                print(str(i+1)+". ",aleatori[1][i][0])
         if aleatori[1][answer - 1][1] == True:
             victorias[torn] += 1
             print("Resposta correcta!\n --- MARCADOR ---\n Preguntes encertades :", victorias[torn])
