@@ -14,45 +14,43 @@ from subprocess import run, call
 
 result = run(["ip","a"],capture_output=True,text=True)
 linies = result.stdout.split("\n")
-lxarxes = []
-intxarxes = []
 diccionari = {}
 idllista = []
+xarxa = []
+mask = []
 
 for i in range(len(linies)):
     linies[i]=linies[i].strip()
     if (linies[i][:5]=="inet "):
-        diccionari[linies[i].split(" ")[-1]] = [linies[i].split(" ")[1]]
+        diccionari[linies[i].split(" ")[-1]] = linies[i].split(" ")[1]
 
-for i in diccionari.values():
-    idllista.append(str(i[0]))
-idllista[0] = str(idllista[0][:8]+"0"+idllista[0][9:])
-idllista[1] = str(idllista[1][:12]+"0"+idllista[1][15:])
-idllista[2] = str(idllista[2][:12]+"0"+idllista[2][13:])
-idllista[3] = str(idllista[3][:9]+"0"+idllista[3][10:])
-idllista[4] = str(idllista[4][:11]+"0"+idllista[4][12:])
+print (diccionari)
 
-while True:
-    resposta = int(input("\nEscull a quina adreça de xarxa vols realitzar-li un escaneig ping sweap (-sP): \n"+
-        "1. "+idllista[0]+"\n2. "+idllista[1]+"\n3. "+idllista[2]+"\n4. "+idllista[3]+"\n5. "+idllista[4]+"\nResposta: "))
+for i in diccionari:
+    idllista.append(diccionari[i].split("/"))
+    xarxa.append(diccionari[i].split("."))
+    mask = int(idllista[0][1])
+    print (mask)
+
+print (xarxa,idllista)
+    
+'''while True:
+    try:
+        resposta = int(input("\nEscull a quina adreça de xarxa vols realitzar-li un escaneig ping sweap (-sP): \n"+
+        "1. "+idllista[0][0]+"\n2. "+idllista[1][0]+"\n3. "+idllista[2][0]+"\n4. "+idllista[3][0]+"\nResposta: "))
+    except TypeError:
+        continue
     if resposta == 1 or resposta == 2 or resposta == 3 or resposta == 4 or resposta == 5:
-        result=run(["nmap","-sP",idllista[resposta-1]],capture_output=True,text=True)
-        print (result)
+        result=run(["nmap","-sP",idllista[resposta-1][0]],capture_output=True,text=True)
+        linies = result.stdout.split("\n")
+        print (linies)
         break
     else:
         print("Introdueix una resposta correcta!")
         call ('clear')
-        continue
+        continue'''
 
-
-'''lxarxes[0] = lxarxes[0][:11]
-lxarxes[2] = lxarxes[2][:16]
-lxarxes[3] = lxarxes[3][:13]
-intxarxes[0] = intxarxes[0][7:]
-intxarxes[2] = intxarxes[2][3:]
-intxarxes[3] = intxarxes[3][2:]
-
-for i in range (len(lxarxes)):
+'''for i in range (len(lxarxes)):
     dic = {intxarxes[i]:lxarxes[i]}
     print("Resultats:\n ",dic)
     xarxa = lxarxes[i][:9]
