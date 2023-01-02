@@ -1,68 +1,87 @@
-#Escriviu un Script en python que en executar-se obtingui les ips de les interfícies 
-# i crei un diccionari amb el nom de la interfície com a clau i la ip com a valor {
-# ‘eth0’:’192.168.203.100/24’} L’script mostra els resultats per pantalla i l’usuari 
-# pot escollir una d’aquestes 
-# adreces per a fer un ping sweap a la XARXA amb nmap.
-#S’emmagatzema els resultats de les ips disponibles en una llista.
-#L’script mostra els resultats per pantalla i l’usuari pot escollir un equip per a realitzar 
-# un escaneig de ports i les versions dels serveis que s’estan executant en ells. Els resultats 
-# s’emmagatzemen en un diccionari amb el format {port:versio_servei}
-#Els resultats es mostren per pantalla i l’usuari pot escollir un port per a realitzar 
-# un escaneig de vulnerabilitats.
-
 from subprocess import run, call
+from time import sleep
 
 result = run(["ip","a"],capture_output=True,text=True)
 linies = result.stdout.split("\n")
 diccionari = {}
-idllista = []
-xarxa = []
-mask = []
 
 for i in range(len(linies)):
     linies[i]=linies[i].strip()
     if (linies[i][:5]=="inet "):
         diccionari[linies[i].split(" ")[-1]] = linies[i].split(" ")[1]
-
-print (diccionari)
+val = list(diccionari.values())
 
 for i in diccionari:
-    idllista.append(diccionari[i].split("/"))
-    xarxa.append(diccionari[i].split("."))
-    mask = int(idllista[0][1])
-    print (mask)
+    mask = str(diccionari[i].split("/")[-1])
+    diccionari.update({i:(diccionari[i].split("/")[0][:-1]+"0")})
+    if diccionari[i][-2] != ".":
+        diccionari.update({i:(diccionari[i][:-3]+"0")})
+    for e in range(1):
+        diccionari.update({i:(diccionari[i]+"/"+mask)})
+val2 = list(diccionari.values())
 
-print (xarxa,idllista)
-    
-'''while True:
+while True:
     try:
-        resposta = int(input("\nEscull a quina adreça de xarxa vols realitzar-li un escaneig ping sweap (-sP): \n"+
-        "1. "+idllista[0][0]+"\n2. "+idllista[1][0]+"\n3. "+idllista[2][0]+"\n4. "+idllista[3][0]+"\nResposta: "))
-    except TypeError:
+        print("\nOpcions: ")
+        e = int()
+        for i in diccionari:
+            e += 1
+            print("     Opció",str(e)+":","( Interfície:",i,"   IP:",val[e-1],")")
+        resposta = int(input("\nEscull a quina adreça IP li vols realitzar-li un escaneig ping sweap a la seva xarxa (-sP): "))
+    except ValueError:
+        print("Introdueix una resposta correcta!")
+        sleep(1)
+        call ('clear')
         continue
-    if resposta == 1 or resposta == 2 or resposta == 3 or resposta == 4 or resposta == 5:
-        result=run(["nmap","-sP",idllista[resposta-1][0]],capture_output=True,text=True)
+    if 0 < resposta <= len(val2):
+        call ('clear')
+        print("Executant la següent comanda: nmap","-sP",val2[resposta-1])
+        result=run(["nmap","-sP",val2[resposta-1]],capture_output=True,text=True)
         linies = result.stdout.split("\n")
-        print (linies)
         break
     else:
         print("Introdueix una resposta correcta!")
+        sleep(1)
         call ('clear')
-        continue'''
+        continue
+    
+ip = list()
+for i in range(len(linies)-1):
+    if (linies[i][-1]==")"):
+        ip.append(linies[i].split(" ")[-1][1:-1])
+    else:
+        continue
 
-'''for i in range (len(lxarxes)):
-    dic = {intxarxes[i]:lxarxes[i]}
-    print("Resultats:\n ",dic)
-    xarxa = lxarxes[i][:9]
-print (xarxa,0)'''
+print("\nA quin equip vols realitzar-li un escaneig de ports?\n")
+a = int()   
+for i in ip:
+    a += 1
+    print("     Equip disponible "+str(a)+":",i)
 
-'''nmap = input ("Selecciona a quina xarxa vols realitzar-li un escaneig amb nmap: \n Opcions: ")
-result=["nmap","-sP"],lxarxes [:12],0
-print (result)'''
+while True:
+    try:
+        adreça = int(input("Resposta: "))
+    except ValueError:
+        print("Introdueix una resposta correcta!")
+        sleep(1)
+        call ('clear')
+        continue
+    if 0 < adreça <= len(ip):
+        call ('clear')
+        print("Executant la següent comanda: nmap","-sV",ip[adreça-1])
+        result=run(["nmap","-sV",ip[adreça-1]],capture_output=True,text=True)
+        linies = result.stdout.split("\n")
+        break
+    else:
+        print("Introdueix una resposta correcta!")
+        sleep(1)
+        call ('clear')
+        continue
 
+for i in range(len(linies)):
+    linies[i]=linies[i].strip()
+    if (linies[i][2]=="/"):
+        diccionari[linies[i][2].split("/")[0]] = linies[i].split(" ")[3:]
+print(diccionari)
 '''print("Codi Retorn:\n",result.returncode)
 print("Tipus error:\n ",result.stderr)'''
-
-'''
-lxarxes [0]= lxarxes.replace('.1/8', '0')
-'''

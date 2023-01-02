@@ -13,4 +13,4 @@ resposta = ["a","b"]
 if answer == resposta[1]:
     print("correcte")
     contador += 1
-    print contador
+    print (contador)
