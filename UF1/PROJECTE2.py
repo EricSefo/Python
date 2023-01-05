@@ -4,21 +4,28 @@ from time import sleep
 result = run(["ip","a"],capture_output=True,text=True)
 linies = result.stdout.split("\n")
 diccionari = {}
+xarxa = []
+xarxes = []
+mask = []
+ports = {}
+z = 0
 
 for i in range(len(linies)):
     linies[i]=linies[i].strip()
+    count = 0
     if (linies[i][:5]=="inet "):
         diccionari[linies[i].split(" ")[-1]] = linies[i].split(" ")[1]
+        xarxa.append(linies[i].split(" ")[1].split("/")[0])
+        mask.append(linies[i].split(" ")[1].split("/")[1])
+        for i, c in enumerate(xarxa[z]):
+            if c == ".":
+                count += 1
+            if count == (int(mask[z]) // 8):
+                position = i
+                xarxes.append(xarxa[z][:position]+".0"*(4-(int(mask[z]) // 8))+"/"+mask[z])
+                break
+        z += 1
 val = list(diccionari.values())
-
-for i in diccionari:
-    mask = str(diccionari[i].split("/")[-1])
-    diccionari.update({i:(diccionari[i].split("/")[0][:-1]+"0")})
-    if diccionari[i][-2] != ".":
-        diccionari.update({i:(diccionari[i][:-3]+"0")})
-    for e in range(1):
-        diccionari.update({i:(diccionari[i]+"/"+mask)})
-val2 = list(diccionari.values())
 
 while True:
     try:
@@ -33,10 +40,10 @@ while True:
         sleep(1)
         call ('clear')
         continue
-    if 0 < resposta <= len(val2):
+    if 0 < resposta <= len(xarxa):
         call ('clear')
-        print("Executant la següent comanda: nmap","-sP",val2[resposta-1])
-        result=run(["nmap","-sP",val2[resposta-1]],capture_output=True,text=True)
+        print("Executant la següent comanda: nmap","-sP",xarxes[resposta-1])
+        result=run(["nmap","-sP",xarxes[resposta-1]],capture_output=True,text=True)
         linies = result.stdout.split("\n")
         break
     else:
@@ -79,9 +86,39 @@ while True:
         continue
 
 for i in range(len(linies)):
-    linies[i]=linies[i].strip()
-    if (linies[i][2]=="/"):
-        diccionari[linies[i][2].split("/")[0]] = linies[i].split(" ")[3:]
-print(diccionari)
+    try:
+        if (linies[i][2]=="/") or (linies[i][3]=="/") or (linies[i][4]=="/"):
+            ports[linies[i].split("/")[0]] = linies[i].split("   ")[-1]
+    except:
+        continue
+
+port = list(ports)
+print("\nA quin port vols realitzar-li un escaneig de vulnearabilitats?\n")
+a = int()   
+for i in port:
+    a += 1
+    print("     Port disponible "+str(a)+":",i)
+    
+while True:
+    try:
+        answer = int(input("Resposta: "))
+    except ValueError:
+        print("Introdueix una resposta correcta!")
+        sleep(1)
+        call ('clear')
+        continue
+    if 0 < answer <= len(ports):
+        call ('clear')
+        print("Executant la següent comanda: nmap","-sV","-sC","-p",port[answer-1],ip[adreça-1])
+        result=run(["nmap","-sV","-sC","-p",port[answer-1],ip[adreça-1]],capture_output=True,text=True)
+        linies = result.stdout.strip().split("\n")
+        break
+    else:
+        print("Introdueix una resposta correcta!")
+        sleep(1)
+        call ('clear')
+        continue
+print(linies)
+    
 '''print("Codi Retorn:\n",result.returncode)
 print("Tipus error:\n ",result.stderr)'''
