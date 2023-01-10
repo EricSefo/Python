@@ -7,6 +7,7 @@ diccionari = {}
 xarxa = []
 xarxes = []
 mask = []
+scan = []
 ports = {}
 z = 0
 
@@ -23,6 +24,7 @@ for i in range(len(linies)):
             if count == (int(mask[z]) // 8):
                 position = i
                 xarxes.append(xarxa[z][:position]+".0"*(4-(int(mask[z]) // 8))+"/"+mask[z])
+                scan.append(xarxa[z][:position]+".0"*(3-(int(mask[z]) // 8)))
                 break
         z += 1
 val = list(diccionari.values())
@@ -56,9 +58,11 @@ ip = list()
 for i in range(len(linies)-1):
     if (linies[i][-1]==")"):
         ip.append(linies[i].split(" ")[-1][1:-1])
+    elif scan[resposta-1] in linies[i].split()[-1]:
+        ip.append(linies[i].split()[-1])
     else:
         continue
-
+    
 print("\nA quin equip vols realitzar-li un escaneig de ports?\n")
 a = int()   
 for i in ip:
@@ -88,15 +92,19 @@ while True:
 for i in range(len(linies)):
     try:
         if (linies[i][2]=="/") or (linies[i][3]=="/") or (linies[i][4]=="/"):
-            ports[linies[i].split("/")[0]] = linies[i].split("   ")[-1]
+                ports[linies[i].split("/")[0]] = linies[i].split("   ")[-1]
     except:
         continue
 
+ver = list(ports.values())
+print(ver)
 port = list(ports)
 print("\nA quin port vols realitzar-li un escaneig de vulnearabilitats?\n")
-a = int()   
+a = int()
+
 for i in port:
     a += 1
+    print()
     print("     Port disponible "+str(a)+":",i)
     
 while True:
