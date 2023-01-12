@@ -27,7 +27,6 @@ for i in range(len(linies)):
                 scan.append(xarxa[z][:position]+".0"*(3-(int(mask[z]) // 8)))
                 break
         z += 1
-val = list(diccionari.values())
 
 while True:
     try:
@@ -35,7 +34,7 @@ while True:
         e = int()
         for i in diccionari:
             e += 1
-            print("     Opció",str(e)+":","( Interfície:",i,"   IP:",val[e-1],")")
+            print("     Opció",str(e)+":","( Interfície:",i,"---> IP:",diccionari[i],")")
         resposta = int(input("\nEscull a quina adreça IP li vols realitzar-li un escaneig ping sweap a la seva xarxa (-sP): "))
     except ValueError:
         print("Introdueix una resposta correcta!")
@@ -62,14 +61,18 @@ for i in range(len(linies)-1):
         ip.append(linies[i].split()[-1])
     else:
         continue
-    
-print("\nA quin equip vols realitzar-li un escaneig de ports?\n")
-a = int()   
-for i in ip:
-    a += 1
-    print("     Equip disponible "+str(a)+":",i)
+
+if len(ip) == 0:
+        print("No hi ha cap equip disponible a la xarxa de la interfície seleccionada")
+        sleep(3)
+        exit()
 
 while True:
+    print("\nA quin equip vols realitzar-li un escaneig de ports?\n")
+    a = int() 
+    for i in ip:
+        a += 1
+        print("     Equip disponible "+str(a)+":",i)
     try:
         adreça = int(input("Resposta: "))
     except ValueError:
@@ -88,26 +91,34 @@ while True:
         sleep(1)
         call ('clear')
         continue
-
+    
 for i in range(len(linies)):
+    linies[i] = linies[i].split(" ")
+    filtre_llista = [[x for x in e if x != ''] for e in linies]
     try:
-        if (linies[i][2]=="/") or (linies[i][3]=="/") or (linies[i][4]=="/"):
-                ports[linies[i].split("/")[0]] = linies[i].split("   ")[-1]
+        if filtre_llista[i][1] == 'open':
+            ports[filtre_llista[i][0]] = filtre_llista[i][2:]
     except:
         continue
-
-ver = list(ports.values())
-print(ver)
+if len(ports) == 0:
+        print("No hi ha cap port disponible per realitzar un escaneig.")
+        sleep(3)
+        exit()
+        
 port = list(ports)
-print("\nA quin port vols realitzar-li un escaneig de vulnearabilitats?\n")
-a = int()
 
-for i in port:
-    a += 1
-    print()
-    print("     Port disponible "+str(a)+":",i)
-    
 while True:
+    a = int()
+    ver = str()
+    p = []
+    print("\nA quin port vols realitzar-li un escaneig de vulnearabilitats?\n")
+    for i in port:
+        for z in ports[i]:
+            ver += str(z)+" "
+        a += 1
+        print("     Port disponible "+str(a)+":",i,"Versió:",ver)
+        p.append(i.split("/")[0])
+        ver = str()
     try:
         answer = int(input("Resposta: "))
     except ValueError:
@@ -117,16 +128,11 @@ while True:
         continue
     if 0 < answer <= len(ports):
         call ('clear')
-        print("Executant la següent comanda: nmap","-sV","-sC","-p",port[answer-1],ip[adreça-1])
-        result=run(["nmap","-sV","-sC","-p",port[answer-1],ip[adreça-1]],capture_output=True,text=True)
-        linies = result.stdout.strip().split("\n")
+        print("Executant la següent comanda: nmap","-sV","-sC","-p",p[answer-1],ip[adreça-1],"--script=vuln")
+        result=run(["nmap","-sV","-sC","-p",p[answer-1],ip[adreça-1],"--script=vuln"])
         break
     else:
         print("Introdueix una resposta correcta!")
         sleep(1)
         call ('clear')
         continue
-print(linies)
-    
-'''print("Codi Retorn:\n",result.returncode)
-print("Tipus error:\n ",result.stderr)'''
