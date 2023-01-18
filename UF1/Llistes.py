@@ -1,6 +1,6 @@
 pesos = {'Pepe':[56, 64, 54],'Paco':[89, 87, 86], 'Pancracio':[102, 105, 111]}
-
-try:
+print(pesos)
+'''try:
     usr=input("Introdueix el nom d'un Usuari: ")
     pes=float(input("Introdueix un pes en kg: "))
     pesos[usr].append(pes)
@@ -9,7 +9,7 @@ except KeyError:
     pesos[usr]=[pes]
     print("Pesos de",usr,pesos[usr]);  
 except ValueError:
-    print("Introdueix el pes en números")
+    print("Introdueix el pes en números")'''
     
 #print (diccionari['Paco'])
 #print (len(diccionari))
