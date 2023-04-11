@@ -71,7 +71,7 @@ def calcular():
     global hosts
     adreça = ent1.get()
     try:
-        if adreça.count(".") == 3:
+        if adreça.count(".") == 3 and 0 <= int(adreça.split(".")[0]) <= 255 and 0 <= int(adreça.split(".")[1]) <= 255 and 0 <= int(adreça.split(".")[2]) <= 255 and 0 <= int(adreça.split(".")[3]) <= 255:
             a = conversio(a,binari,adreça)
             b = conversio(b,decimal,a)
         else:
@@ -82,7 +82,6 @@ def calcular():
         masc = int(ent2.get())
     except:
         messagebox.showinfo("Màscara incorrecta", "Màscara incorrecta")
-#OPCIONAL: Subxarxes de la IP a partir del número de hosts requerits per subxarxa.
     if masc >= 0 and masc <= 30:
         masc_binari = autocompletar(masc_binari,masc,"1")
         binari_wildcard = masc_binari.replace("1","0")
@@ -124,7 +123,7 @@ def calcular():
             for i in range (31-masc):
                 subxarxes = 2**i
                 if subxarxes_requerides <= subxarxes:
-                    l23.config(text="Es necessiten "+str(i)+" bits per obtenir les "+str(subxarxes_requerides)+" subxarxes requerides amb "+str(2**(32-(i+masc))-2)+" hosts cadascuna")
+                    l23.config(text="Es necessiten "+str(i)+" bits per obtenir les "+str(subxarxes_requerides)+" subxarxes requerides. En total es crearan "+str(2**i)+ " subxarxes amb "+str(2**(32-(i+masc))-2)+" hosts cadascuna")
                     break
             if subxarxes_requerides > subxarxes:
                 l23.config(text="No hi ha prous bits per obtenir les "+str(subxarxes_requerides)+" subxarxes requerides")
@@ -135,9 +134,8 @@ def calcular():
         if hosts_requerits < 1:
             l24.config(text="Es necessiten 0 bits per obtenir els "+str(hosts_requerits)+" hosts requerits")
         else:
-            for i in range (30-masc):
+            for i in range (32-masc):
                 hosts_subxarxa = (2**i)-2
-                print(hosts_requerits,hosts_subxarxa)
                 if hosts_requerits <= hosts_subxarxa:
                     print("A",hosts_requerits,hosts_subxarxa)
                     l24.config(text="Es necessiten "+str(i)+" bits per obtenir els "+str(hosts_requerits)+" hosts requerits en "+str(2**(32-(i+masc)))+" subxarxes amb "+str(hosts_subxarxa)+" hosts per subxarxa en total")
