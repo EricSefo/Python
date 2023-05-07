@@ -1,0 +1,2 @@
+Amb la comanda "pip install -r requirements.txt" instal·larà totes les dependències llistades al fitxer requirements.txt al vostre sistema executant-lo des de l'arrel del projecte. 
+Assegura't que ets al directori on es troba el fitxer "requirements.txt".
