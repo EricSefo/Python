@@ -27,7 +27,6 @@ os.chdir(config[0])
 arxius = os.listdir()
 arxius.sort()
 
-
 def calcul(llista, document):
     # Inicialitzem les variables necessàries
     inc = 0

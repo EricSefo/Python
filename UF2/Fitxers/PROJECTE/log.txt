@@ -1,0 +1,84 @@
+2023-05-08 22:15:00 - 20230421_01.txt - Error de pesada!!! - Pes: 59.871
+2023-05-08 22:15:00 - 20230421_01.txt - Error de lectura!!!
+2023-05-08 22:15:00 - 20230421_01.txt - Error de pesada!!! - Pes: 20.753
+2023-05-08 22:15:00 - 20230421_01.txt - Error de pesada!!! - Pes: 0.465
+2023-05-08 22:15:00 - 20230421_01.txt - Error de lectura!!!
+2023-05-08 22:15:00 - 20230421_01.txt - Error de lectura!!!
+2023-05-08 22:15:00 - 20230421_01.txt - Error de lectura!!!
+2023-05-08 22:15:00 - 20230421_01.txt - Error de lectura!!!
+2023-05-08 22:15:00 - 20230421_01.txt - Error de lectura!!!
+2023-05-08 22:15:00 - 20230421_02.txt - Error de lectura!!!
+2023-05-08 22:15:00 - 20230421_02.txt - Error de pesada!!! - Pes: 12.643
+2023-05-08 22:15:00 - 20230421_03.txt - Error de lectura!!!
+2023-05-08 22:15:00 - 20230421_03.txt - Error de lectura!!!
+2023-05-08 22:15:00 - 20230421_03.txt - Error de lectura!!!
+2023-05-08 22:15:00 - 20230421_03.txt - Error de lectura!!!
+2023-05-08 22:15:00 - 20230421_03.txt - Error de pesada!!! - Pes: 12.369
+2023-05-08 22:15:00 - 20230421_03.txt - Error de lectura!!!
+2023-05-08 22:15:00 - 20230421_03.txt - Error de lectura!!!
+2023-05-08 22:15:00 - 20230421_04.txt - Error de lectura!!!
+2023-05-08 22:15:00 - 20230421_04.txt - Error de lectura!!!
+2023-05-08 22:15:00 - 20230421_04.txt - Error de pesada!!! - Pes: 0.064
+2023-05-08 22:15:00 - 20230421_04.txt - Error de lectura!!!
+2023-05-08 22:15:00 - 20230421_04.txt - Error de pesada!!! - Pes: 0.605
+2023-05-08 22:15:00 - 20230421_04.txt - Error de lectura!!!
+2023-05-08 22:15:00 - 20230421_04.txt - Error de lectura!!!
+2023-05-08 22:15:00 - 20230421_04.txt - Error de lectura!!!
+2023-05-08 22:15:00 - 20230421_04.txt - Error de pesada!!! - Pes: 1.129
+2023-05-08 22:15:00 - 20230421_04.txt - Error de lectura!!!
+2023-05-08 22:15:00 - 20230421_05.txt - Error de pesada!!! - Pes: 1.319
+2023-05-08 22:15:00 - 20230421_05.txt - Error de lectura!!!
+2023-05-08 22:15:00 - 20230421_05.txt - Error de lectura!!!
+2023-05-08 22:15:00 - 20230421_05.txt - Error de lectura!!!
+2023-05-08 22:15:00 - 20230421_05.txt - Error de lectura!!!
+2023-05-08 22:15:00 - 20230421_06.txt - Error de lectura!!!
+2023-05-08 22:15:00 - 20230421_06.txt - Error de pesada!!! - Pes: 74.286
+2023-05-08 22:15:00 - 20230421_06.txt - Error de lectura!!!
+2023-05-08 22:15:00 - 20230421_06.txt - Error de pesada!!! - Pes: 60.923
+2023-05-08 22:15:00 - 20230421_06.txt - Error de lectura!!!
+2023-05-08 22:15:00 - 20230421_06.txt - Error de lectura!!!
+2023-05-08 22:15:00 - 20230421_06.txt - Error de lectura!!!
+2023-05-08 22:15:00 - 20230421_06.txt - Error de pesada!!! - Pes: 0.972
+2023-05-08 22:15:00 - 20230421_07.txt - Error de lectura!!!
+2023-05-08 22:15:00 - 20230421_07.txt - Error de lectura!!!
+2023-05-08 22:15:00 - 20230421_07.txt - Error de lectura!!!
+2023-05-08 22:15:00 - 20230421_07.txt - Error de pesada!!! - Pes: 0.918
+2023-05-08 22:15:00 - 20230421_07.txt - Error de pesada!!! - Pes: 0.645
+2023-05-08 22:15:00 - 20230421_07.txt - Error de pesada!!! - Pes: 1.1
+2023-05-08 22:15:00 - 20230421_07.txt - Error de lectura!!!
+2023-05-08 22:15:00 - 20230421_07.txt - Error de pesada!!! - Pes: 31.182
+2023-05-08 22:15:00 - 20230421_07.txt - Error de lectura!!!
+2023-05-08 22:15:00 - 20230421_07.txt - Error de lectura!!!
+2023-05-08 22:15:00 - 20230421_07.txt - Error de pesada!!! - Pes: 27.617
+2023-05-08 22:15:00 - 20230421_08.txt - Error de lectura!!!
+2023-05-08 22:15:00 - 20230421_08.txt - Error de lectura!!!
+2023-05-08 22:15:00 - 20230421_08.txt - Error de lectura!!!
+2023-05-08 22:15:00 - 20230421_08.txt - Error de lectura!!!
+2023-05-08 22:15:00 - 20230421_08.txt - Error de lectura!!!
+2023-05-08 22:15:00 - 20230421_08.txt - Error de pesada!!! - Pes: 59.056
+2023-05-08 22:15:00 - 20230421_08.txt - Error de lectura!!!
+2023-05-08 22:15:00 - 20230421_08.txt - Error de lectura!!!
+2023-05-08 22:15:00 - 20230421_09.txt - Error de lectura!!!
+2023-05-08 22:15:00 - 20230421_09.txt - Error de lectura!!!
+2023-05-08 22:15:00 - 20230421_09.txt - Error de lectura!!!
+2023-05-08 22:15:00 - 20230421_09.txt - Error de lectura!!!
+2023-05-08 22:15:00 - 20230421_09.txt - Error de lectura!!!
+2023-05-08 22:15:00 - 20230421_09.txt - Error de pesada!!! - Pes: 0.113
+2023-05-08 22:15:00 - 20230421_09.txt - Error de lectura!!!
+2023-05-08 22:15:00 - 20230421_09.txt - Error de pesada!!! - Pes: 5.487
+2023-05-08 22:15:00 - 20230421_10.txt - Error de lectura!!!
+2023-05-08 22:15:00 - 20230421_10.txt - Error de lectura!!!
+2023-05-08 22:15:00 - 20230421_10.txt - Error de pesada!!! - Pes: 30.202
+2023-05-08 22:15:00 - 20230421_10.txt - Error de lectura!!!
+2023-05-08 22:15:00 - 20230421_10.txt - Error de lectura!!!
+2023-05-08 22:15:00 - 20230421_10.txt - Error de lectura!!!
+2023-05-08 22:15:00 - 20230421_10.txt - Error de lectura!!!
+2023-05-08 22:15:00 - 20230421_10.txt - Error de pesada!!! - Pes: 10.469
+2023-05-08 22:15:00 - 20230421_10.txt - Error de pesada!!! - Pes: 0.573
+2023-05-08 22:15:00 - 20230421_10.txt - Error de lectura!!!
+2023-05-08 22:15:00 - 20230421_11.txt - Error de pesada!!! - Pes: 20.362
+2023-05-08 22:15:00 - 20230421_11.txt - Error de lectura!!!
+2023-05-08 22:15:00 - 20230421_11.txt - Error de lectura!!!
+2023-05-08 22:15:00 - 20230421_11.txt - Error de lectura!!!
+2023-05-08 22:15:00 - 20230421_11.txt - Error de lectura!!!
+2023-05-08 22:15:00 - 20230421_11.txt - Error de lectura!!!

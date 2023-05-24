@@ -1,0 +1,51 @@
+La empresa especialitzada en fabricació de cremalleres "No s'enganxen mai SL" es una multinacional del tèxtil que te una seu en la vostra ciutat. El seu procés de producció consisteix en el muntatge les diferents parts que conformen una cremallera: començant pels cursors (banyant-los i/o pintant-los) , generant la cadena sobre la que es mou una cremallera (tant les dents com la part tèxtil), fins al muntatge de tots els components juntament amb els topalls que inclou una cremallera.
+
+La fàbrica esta organitzada en tres seccions independents: 360 (metall), 211(nailon) i 410 (vislon) amb tots els seus processos productius totalment separats així com els seus respectius magatzems de components. Cada magatzem esta organitzat per passadissos, on hi ha estanteries i cada estanteria te 4 altures. Un cop l'any es du a terme un inventari de tota la fàbrica, això vol dir que es para la producció de la fàbrica i tots els operaris es dediquen a fer recompte del material present a la fàbrica. 
+
+Nosaltres ens centrarem amb l'inventari de cursors, cada cursor es compon d'un cru (un codi de 7 xifres) i un color(un codi 3 de tres xifres). El recompte es du a terme amb uns terminals portàtils que generen un fitxer txt (un per terminal) que pot pertanyer a una de les tres seccions. Cada fitxer te un nom de la forma SSS_XX.txt on SSS es el codi de secció i XX es el codi del terminal que ha generat aquell fitxer. Cada article per cada passadís, prestatgeria i altura pot tenir varies lectures d'inventari. El contingut de cada fitxer son les lectures que s'han fet amb el terminal portàtil i tenen la següent forma:
+
+data;article;color;desc_article;passadis;estanteria;altura;quantitat
+
+El que es vol es un programa que agafi aquestes lectures i en generi dos fitxers de resum. El primer es dirà cru.txt i serà un fitxer de ; que serà recompte per secció dels cursors tenint en compte el cru, sense tenir en compte el color, i tindrà la forma:
+
+Codi secció;Codi article;quantitat total inventariada
+Codi secció;Codi article;quantitat total inventariada
+etc.
+
+El seguent fitxer es dirà articleColor.txt i serà un recompte per secció de cada cursors tenint en compte el color amb que està pintat i tindrà la forma:
+
+Codi secció; Codi article; codi color; quantitat inventariada
+Codi secció; Codi article; codi color; quantitat inventariada
+Codi secció; Codi article; codi color; quantitat inventariada
+Codi secció; Codi article; codi color; quantitat inventariada
+...
+
+La quantitat total inventariada es el resultat de la suma de totes les lectures d'inventari, s'ha de tenir en compte de no barrejar seccions diferents. En el fitxer de cru's les linies hauran d'estar ordenades per secció i article, en el cas del fitxer articlescolor per secció, codi article i codi color.
+
+Un cop acabat el procés, i si tot ha anat bé, es procedeix a fer un guardat dels fitxer d'inventari (els que han generat els terminals portàtils i a guardar-los comprimits en una ubicació específica). Un cop acabat aquest procés s'enviara un correu resum a un responsable indicant els fitxers que s'han processat per secció i si s'ha pogut processar correctament o ha donat algun error.
+
+Si es produeix algun error en el processat d'algun fitxer, el procés no ha de parar, però ha de registrar l'error en un fitxer log.txt així com indicar-ho al correu de resum.
+
+El programa que creareu també haurà de llegir un fitxer config.txt on:
+
+-La primera línia es la ubicació dels fitxers a processar.
+
+-La segona línia la ubiació on deixarem els fitxers comprimits després del proces.
+
+-La tercera línia on deixarem els fitxers resum generats.
+
+-La quarta línia el servidor smtp que utilitzarem per enviar el correu
+
+-La 5a línia el port pel qual ens conectarem a aquest servidor
+
+-6a línia l'usuari del correu
+
+-7a línia la contrasenya d'aquest correu
+
+-8a línia correu electrónic de destinació de l'informe
+
+Teniu adjunts un exemple del fitxer generat d'un inventari.
+
+
+
+En resum: partim d'un conjunt de fitxers .txt on cadascún pertany a una secció en concret i un fitxer config.txt on tenim informació que necessita el nostre programa per funcionar. El que hem de generar son dos fitxers cru.txt i articleColor.txt, un correu electrónic i un fitxer log.txt.
